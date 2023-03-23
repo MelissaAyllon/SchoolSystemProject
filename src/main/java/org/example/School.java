@@ -45,7 +45,7 @@ public class School {
 
     /**
      * Adding new student to the register
-     * @param students
+     * @param student
      */
     public void setStudents(Student student) {
         students.add(student);
@@ -80,6 +80,20 @@ public class School {
      * @param totalMoneySpent
      */
     public void updateMoneySpent(int totalMoneySpent) {
+        this.totalMoneyEarned -= totalMoneySpent;
         this.totalMoneySpent += totalMoneySpent;
+    }
+
+    /**
+     * Make the respective payment
+     * to every teacher
+     * & update the money spent
+     */
+    public void doPayments(){
+        int monthPayment = 0;
+        for(Teacher teacher: this.teachers){
+            monthPayment += teacher.getSalary();
+        }
+        updateMoneySpent(monthPayment);
     }
 }

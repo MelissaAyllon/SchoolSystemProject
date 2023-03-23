@@ -65,4 +65,8 @@ public class Student {
     public float getFeesTotal() {
         return feesTotal;
     }
+
+    public float getRemainingAm(){
+        return feesTotal-feesPaid;
+    }
 }
